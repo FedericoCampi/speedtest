@@ -4,9 +4,8 @@ import { useState, useEffect, useRef } from 'react'
 import { motion, AnimatePresence, useAnimation } from 'framer-motion'
 import { Button } from "@/components/ui/button"
 import { Card, CardContent, CardHeader, CardTitle } from "@/components/ui/card"
-import { Share2, Download, Upload, Wifi, Play, Pause, RefreshCw, ChevronUp, ChevronDown, Zap } from 'lucide-react'
+import { Share2, Download, Upload, Play, RefreshCw, ChevronUp, ChevronDown, Zap } from 'lucide-react'
 import Image from 'next/image'
-import axios from 'axios'
 
 const SpeedMeter = ({ value, max, color }: { value: number, max: number, color: string }) => {
 
