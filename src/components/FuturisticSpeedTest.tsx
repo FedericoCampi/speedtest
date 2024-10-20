@@ -123,16 +123,16 @@ export default function FuturisticSpeedTest() {
 
 
 
-    const response = await axios.get('http://localhost:3000/speedtest');
+    // const response = await axios.get('http://localhost:3000/speedtest');
 
-    const { downloadSpeed } = response.data;
-    const numericDownloadSpeed = Number(downloadSpeed);
-    console.log(numericDownloadSpeed)
-    // Asigna los valores a los estados correspondientes
-    setDownloadSpeed(numericDownloadSpeed);
+    // const { downloadSpeed } = response.data;
+    // const numericDownloadSpeed = Number(downloadSpeed);
+    // console.log(numericDownloadSpeed)
+    // // Asigna los valores a los estados correspondientes
+    // setDownloadSpeed(numericDownloadSpeed);
 
     
-    // setDownloadSpeed(2)
+    setDownloadSpeed(2)
     setUploadSpeed(4)
     setPing(19)
     setIsLoading(false)
