@@ -6,26 +6,27 @@ import { Button } from "@/components/ui/button"
 import { Card, CardContent, CardHeader, CardTitle } from "@/components/ui/card"
 import { Share2, Download, Upload, Play, RefreshCw, ChevronUp, ChevronDown, Zap } from 'lucide-react'
 import Image from 'next/image'
+import axios from 'axios'
 
-const SpeedMeter = ({ value, max, color }: { value: number, max: number, color: string }) => {
+// const SpeedMeter = ({ value, max, color }: { value: number, max: number, color: string }) => {
 
-  const angle = (value / max) * 180 - 10
+//   const angle = (value / max) * 180 - 10
 
-  return (
-    <div className="relative w-48 h-24 overflow-hidden">
-      <div className="absolute w-48 h-48 bottom-0 left-0 bg-gray-800 rounded-full"></div>
-      <motion.div 
-        className="absolute w-1 h-24 bottom-0 left-24 origin-bottom"
-        style={{ backgroundColor: color }}
-        animate={{ rotate: angle }}
-        transition={{ type: "spring", stiffness: 60 }}
-      ></motion.div>
-      <div className="absolute bottom-2 left-1/2 transform -translate-x-1/2 text-2xl font-bold">
-        {value.toFixed(2)}
-      </div>
-    </div>
-  )
-}
+//   return (
+//     <div className="relative w-48 h-24 overflow-hidden">
+//       <div className="absolute w-48 h-48 bottom-0 left-0 bg-gray-800 rounded-full"></div>
+//       <motion.div 
+//         className="absolute w-1 h-24 bottom-0 left-24 origin-bottom"
+//         style={{ backgroundColor: color }}
+//         animate={{ rotate: angle }}
+//         transition={{ type: "spring", stiffness: 60 }}
+//       ></motion.div>
+//       <div className="absolute bottom-2 left-1/2 transform -translate-x-1/2 text-2xl font-bold">
+//         {value.toFixed(2)}
+//       </div>
+//     </div>
+//   )
+// }
 
 const ParticleEffect = () => {
   const canvasRef = useRef<HTMLCanvasElement>(null)
@@ -122,18 +123,14 @@ export default function FuturisticSpeedTest() {
 
 
 
-    // const response = await axios.get('http://localhost:3000/speedtest');
+    const response = await axios.get('http://localhost:3000/speedtest');
 
-    // const { downloadSpeed } = response.data;
-    // const numericDownloadSpeed = Number(downloadSpeed);
-    // console.log(numericDownloadSpeed)
-    // // Asigna los valores a los estados correspondientes
-    // setDownloadSpeed(numericDownloadSpeed);
+    const { downloadSpeed, uploadSpeed, latency } = response.data;
 
-    
-    setDownloadSpeed(2)
-    setUploadSpeed(4)
-    setPing(19)
+    // Asigna los valores a los estados correspondientes
+    setDownloadSpeed(downloadSpeed)
+    setUploadSpeed(uploadSpeed)
+    setPing(latency)
     setIsLoading(false)
   }
 
@@ -248,7 +245,8 @@ export default function FuturisticSpeedTest() {
                         <CardTitle className="text-sm text-cyan-400">DESCARGA</CardTitle>
                       </CardHeader>
                       <CardContent>
-                        <SpeedMeter value={downloadSpeed} max={10} color="#06b6d4" />
+                        <p className='text-center text-white text-2xl'>{downloadSpeed} Mbps</p>
+                        {/* <SpeedMeter value={downloadSpeed} max={10} color="#06b6d4" /> */}
                       </CardContent>
                     </Card>
                     <Card className="bg-gray-800/50 backdrop-blur-md border border-purple-500/30">
@@ -256,7 +254,8 @@ export default function FuturisticSpeedTest() {
                         <CardTitle className="text-sm text-purple-400">SUBIDA</CardTitle>
                       </CardHeader>
                       <CardContent>
-                        <SpeedMeter value={uploadSpeed} max={5} color="#a855f7" />
+                        <p className='text-center text-white text-2xl'>{uploadSpeed} Mbps</p>
+                        {/* <SpeedMeter value={uploadSpeed} max={5} color="#a855f7" /> */}
                       </CardContent>
                     </Card>
                   </motion.div>
@@ -273,7 +272,7 @@ export default function FuturisticSpeedTest() {
                     transition={{ duration: 0.3 }}
                   >
                     <div className="text-sm text-blue-400">Ping</div>
-                    <div className="text-2xl font-bold">{ping} ms</div>
+                    <div className="text-lg text-white font-bold pt-2">{ping} ms</div>
                   </motion.div>
                 )}
               </AnimatePresence>
@@ -290,8 +289,8 @@ export default function FuturisticSpeedTest() {
                     whileHover={{ scale: 1.1 }}
                     whileTap={{ scale: 0.9 }}
                   >
-                    <Button variant="outline" size="icon" className="rounded-full hover:bg-cyan-500/20 transition-all duration-300">
-                      <Icon className="w-4 h-4" />
+                    <Button variant="outline" size="icon" className="rounded-full hover:bg-cyan-200/20 transition-all duration-300">
+                      <Icon className="w-4 h-4 text-black" />
                     </Button>
                   </motion.div>
                 ))}
@@ -308,19 +307,19 @@ export default function FuturisticSpeedTest() {
                 transition={{ duration: 0.5, delay: 0.2 + index * 0.1 }}
               >
                 <Card className="bg-gray-900/50 text-white backdrop-blur-md border-2 border-purple-500/30 overflow-hidden">
-                  <CardHeader>
+                  <CardHeader className='hidden'>
                     <CardTitle className="text-lg font-semibold text-transparent bg-clip-text bg-gradient-to-r from-cyan-400 to-purple-500">
                       Anuncio {index + 1}
                     </CardTitle>
                   </CardHeader>
-                  <CardContent>
+                  <CardContent className='p-0'>
                     <motion.div 
                       className="bg-gray-800/50 h-40 flex items-center justify-center rounded-lg overflow-hidden group"
                       whileHover={{ scale: 1.05 }}
                       transition={{ duration: 0.3 }}
                     >
                       <Image 
-                        src="/placeholder.svg?height=160&width=300" 
+                        src='/adds/fanta.jpeg' 
                         width={300} 
                         height={160} 
                         alt="Ad Space" 
