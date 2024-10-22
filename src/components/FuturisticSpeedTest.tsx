@@ -154,7 +154,7 @@ export default function FuturisticSpeedTest() {
                 animate={{ opacity: 1, y: 0 }}
                 transition={{ duration: 0.5, delay: index * 0.1 }}
               >
-                <Button variant="ghost" className="text-cyan-400 hover:text-cyan-300 hover:bg-white/10 transition-all duration-300">
+                <Button variant="ghost" className="hidden text-cyan-400 hover:text-cyan-300 hover:bg-white/10 transition-all duration-300">
                   {item}
                 </Button>
               </motion.div>
