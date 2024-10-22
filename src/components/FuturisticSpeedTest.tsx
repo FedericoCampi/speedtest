@@ -123,7 +123,7 @@ export default function FuturisticSpeedTest() {
 
 
 
-    const response = await axios.get('http://localhost:3000/speedtest');
+    const response = await axios.get(process.env.FAST_TEST_URL ?? 'localhost:3000/speedtest');
 
     const { downloadSpeed, uploadSpeed, latency } = response.data;
 
