@@ -32,7 +32,7 @@ export default function RootLayout({
       <head>
         <link rel="icon" href="/favicon.ico" sizes="any" />
         <meta name="description" content="Mide la velocidad de tu conexión a internet de manera rápida y precisa. Descubre tu velocidad de descarga, carga y latencia en segundos." />
-        <meta name="keywords" content="speedtest, internet, velocidad, test, conexión, descarga, carga, ping, latencia, pc lenta, pc rapida, ejecución, wifi" />
+        <meta name="keywords" content="speedtest, speed test, internet, velocidad, test, conexión, descarga, carga, ping, latencia, pc lenta, pc rapida, ejecución, wifi" />
         <meta property="og:title" content="Speedtest - Mide tu velocidad de Internet" />
         <meta property="og:description" content="Mide la velocidad de tu conexión a internet de manera rápida y precisa. Descubre tu velocidad de descarga, carga y latencia en segundos." />
         <meta property="og:image" content="/favicon.ico" />
