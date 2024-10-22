@@ -121,9 +121,7 @@ export default function FuturisticSpeedTest() {
     // Simulating API call for speed test
     await new Promise(resolve => setTimeout(resolve, 3000))
 
-
-    console.log(process.env.NEXT_PUBLIC_FAST_TEST_URL)
-    const response = await axios.get(process.env.NEXT_PUBLIC_FAST_TEST_URL || 'http://localhost:3000/speedtest');
+    const response = await axios.get(process.env.NEXT_PUBLIC_FAST_TEST_URL || 'https://speedtestback.onrender.com/speedtest');
 
     const { downloadSpeed, uploadSpeed, latency } = response.data;
 
